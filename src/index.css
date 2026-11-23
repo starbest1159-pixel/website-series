@@ -1,0 +1,86 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Outfit', 'Noto Sans Thai', sans-serif;
+    --font-body: 'Noto Sans Thai', 'Outfit', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono-tabular {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Smooth scrollbar hiding for horizontal platform & series strips */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* GPU-composited studio loader animations (transform & opacity only for locked 60fps) */
+@keyframes bannlai-logo-float {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -6px, 0) scale(1.022);
+  }
+}
+
+@keyframes bannlai-aura-breathe {
+  0%, 100% {
+    opacity: 0.45;
+    transform: translate3d(-50%, -50%, 0) scale(0.94);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate3d(-50%, -50%, 0) scale(1.06);
+  }
+}
+
+@keyframes bannlai-beam-sweep {
+  0% {
+    transform: translate3d(-95%, 0, 0);
+  }
+  100% {
+    transform: translate3d(245%, 0, 0);
+  }
+}
+
+.bannlai-loader-logo {
+  animation: bannlai-logo-float 3.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  will-change: transform;
+}
+
+.bannlai-loader-aura {
+  animation: bannlai-aura-breathe 3.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  will-change: transform, opacity;
+}
+
+.bannlai-loader-beam {
+  animation: bannlai-beam-sweep 1.25s cubic-bezier(0.4, 0, 0.2, 1) -0.35s infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Bannlai Series",
+  "description": "แพลตฟอร์มสตรีมมิ่งรวมซีรีส์และอนิเมะจากทุกแพลตฟอร์มไว้ในที่เดียว ดูฟรี ครบทุกความบันเทิง",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
